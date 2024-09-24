@@ -1,0 +1,32 @@
+{
+  "validation": {
+    "amountRequired": "Amount is required",
+    "minimumAmount": "Minimum amount is 0.01",
+    "payeeAccountRequired": "Payee Account is required",
+    "purposeRequired": "Purpose is required",
+    "payerAccountRequired": "Payer Account is required",
+    "payeeRequired": "Payee is required",
+    "invalidIban": "Invalid IBAN",
+    "purposeMin": "Purpose must be at least 3 characters",
+    "purposeMax": "Purpose must be 135 characters or less",
+    "payeeMax": "Payee name must be 70 characters or less",
+    "exceedsBalance": "Amount exceeds balance"
+  },
+  "form": {
+    "title": "Payment Form",
+    "amount": "Amount",
+    "payeeAccount": "Payee Account",
+    "purpose": "Purpose",
+    "payerAccount": "Payer Account",
+    "payee": "Payee",
+    "submit": "Submit Payment",
+    "formattedAmount": "Formatted: {{amount}}",
+    "formattedBalance": "{{iban}} (Balance: {{balance}})",
+    "button": "Send"
+  },
+  "language": {
+    "label": "Language",
+    "en": "English",
+    "lt": "Lithuanian"
+  }
+}

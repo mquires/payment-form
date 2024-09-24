@@ -1,0 +1,15 @@
+@import '../../../utils/colors.scss';
+
+.numericFormatField {
+  padding: 11px;
+  border: 1px solid $gray;
+  border-radius: 0.2rem;
+
+  &::placeholder {
+    text-indent: 11px;
+  }
+
+  &:hover {
+    border: 1px solid $black;
+  }
+}

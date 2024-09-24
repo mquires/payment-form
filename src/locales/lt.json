@@ -1,0 +1,32 @@
+{
+  "validation": {
+    "amountRequired": "Reikalinga suma",
+    "minimumAmount": "Minimali suma yra 0,01",
+    "payeeAccountRequired": "Reikalinga gavėjo sąskaita",
+    "purposeRequired": "Reikalingas tikslas",
+    "payerAccountRequired": "Reikalinga mokėtojo sąskaita",
+    "payeeRequired": "Reikalingas gavėjas",
+    "invalidIban": "Netinkamas IBAN",
+    "purposeMin": "Paskirtį turi sudaryti bent 3 simboliai",
+    "purposeMax": "Paskirtis turi būti 135 ar mažiau simbolių",
+    "payeeMax": "Gavėjo vardas turi būti sudarytas iš 70 ar mažiau simbolių",
+    "exceedsBalance": "Suma viršija likutį"
+  },
+  "form": {
+    "title": "Mokėjimo forma",
+    "amount": "Suma",
+    "payeeAccount": "Gavėjo sąskaita",
+    "purpose": "Mokėjimo tikslas",
+    "payerAccount": "Mokėtojo sąskaita",
+    "payee": "Gavėjas",
+    "submit": "Siųsti mokėjimą",
+    "formattedAmount": "Formatuota: {{amount}}",
+    "formattedBalance": "{{iban}} (Balansas: {{balance}})",
+    "button": "Siųsti"
+  },
+  "language": {
+    "label": "Kalba",
+    "en": "Anglų",
+    "lt": "Lietuvių"
+  }
+}
