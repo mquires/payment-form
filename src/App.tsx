@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
-import { Button, MenuItem, Stack } from '@mui/material';
+import { Alert, Button, MenuItem, Snackbar, SnackbarCloseReason, Stack } from '@mui/material';
 import * as Yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import axios from 'axios';
 import { useTranslation } from 'react-i18next';
 import InputController from './shared/components/formControllers/InputController/InputController';
 import SelectController from './shared/components/formControllers/SelectController';
-import styles from './App.module.scss'
 import LanguageSwitcher from './shared/components/LanguageSwitcher/LanguageSwitcher';
 import NumberFormatController from './shared/components/formControllers/NumberFormatController/NumberFormatController';
+import { FormControl } from './styles';
 
 interface PaymentFormData {
   amount: number;
@@ -52,6 +52,7 @@ const App: React.FC = () => {
   });
 
   const [balance, setBalance] = useState<number | null>(null);
+  const [snackbarOpen, setSnackbarOpen] = useState(false);
 
   const selectedPayerAccount = watch('payerAccount');
   const enteredAmount = watch('amount');
@@ -96,10 +97,22 @@ const App: React.FC = () => {
 
   const onSubmit = (data: PaymentFormData) => {
     console.log('Form Data:', data);
+    setSnackbarOpen(true);
+
+    setTimeout(() => {
+      setSnackbarOpen(false);
+    }, 5000);
+  };
+
+  const handleCloseSnackbar = (event: React.SyntheticEvent | Event, reason?: SnackbarCloseReason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+    setSnackbarOpen(false);
   };
 
   return (
-    <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
+    <FormControl onSubmit={handleSubmit(onSubmit)}>
       <Stack direction="row" gap={2} justifyContent="space-between" alignItems='center'>
         <h1>{translate('form.title')}</h1>
         <LanguageSwitcher />
@@ -146,10 +159,28 @@ const App: React.FC = () => {
         label={translate('form.purpose')}
         required
       />
-      <Button sx={{ mt: 2 }} type="submit" variant="contained" color="primary" fullWidth disabled={isDisabled}>
+      <Button
+        sx={{
+          mt: 2,
+          backgroundColor: '#759bfa',
+          borderRadius: '20px',
+          padding: '15px 0',
+        
+        }}
+        type="submit"
+        variant="contained"
+        color="primary"
+        fullWidth
+        disabled={isDisabled}
+      >
         {translate('form.button')}
       </Button>
-    </form>
+      <Snackbar open={snackbarOpen} autoHideDuration={5000} onClose={handleCloseSnackbar}>
+        <Alert onClose={handleCloseSnackbar} severity="success" sx={{ width: '100%' }}>
+          {translate('form.submitSuccess')}
+        </Alert>
+      </Snackbar>
+    </FormControl>
   )
 }
 

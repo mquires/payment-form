@@ -1,6 +1,6 @@
-import { TextField, Typography } from '@mui/material';
 import React from 'react';
 import { Control, Controller, FieldValues, Path } from 'react-hook-form';
+import { StyledTextField } from './styles';
 
 interface InputControllerProps<T extends FieldValues> {
   name: Path<T>;
@@ -31,17 +31,14 @@ const InputController = <T extends FieldValues>({
       control={control}
       render={({ field: { onChange, value }, fieldState: { error } }) => (
         <>
-          <Typography fontSize="14px" fontWeight={400} color="#8C8C8C">
-            {label}{required && '*'}
-          </Typography>
-          <TextField
+          <StyledTextField
             type={type}
             helperText={helperText || (error ? error.message : '')}
             error={!!error}
             onChange={onChange}
             value={value || ''}
             fullWidth
-            label={''}
+            label={label}
             size='small'
             required={required}
             inputRef={inputRef}

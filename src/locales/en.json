@@ -22,7 +22,8 @@
     "submit": "Submit Payment",
     "formattedAmount": "Formatted: {{amount}}",
     "formattedBalance": "{{iban}} (Balance: {{balance}})",
-    "button": "Send"
+    "button": "Send",
+    "submitSuccess": "Data sent successfully!"
   },
   "language": {
     "label": "Language",

@@ -22,7 +22,8 @@
     "submit": "Siųsti mokėjimą",
     "formattedAmount": "Formatuota: {{amount}}",
     "formattedBalance": "{{iban}} (Balansas: {{balance}})",
-    "button": "Siųsti"
+    "button": "Siųsti",
+    "submitSuccess": "Duomenys sėkmingai išsiųsti!"
   },
   "language": {
     "label": "Kalba",

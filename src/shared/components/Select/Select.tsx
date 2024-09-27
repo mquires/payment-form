@@ -37,7 +37,15 @@ const Select = <T,>({
         labelId="select-filter"
         value={value || ''}
         onChange={handleChange}
-        input={<OutlinedInput />}
+        input={<OutlinedInput
+          style={{
+            padding: '16px 12px 8px',
+            boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.1)',
+            borderRadius: '8px',
+            backgroundColor: 'white',
+       
+          }}
+        />}
         displayEmpty
         name={name}
         id={id}

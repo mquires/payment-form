@@ -1,9 +1,7 @@
-import { Typography } from '@mui/material';
-import React from 'react';
+import React, { useState } from 'react';
 import { Control, Controller, FieldValues, Path } from 'react-hook-form';
-import { NumericFormat } from 'react-number-format';
 import FieldErrorMessage from '../../FieldErrorMessage';
-import styles from './NumberFormaController.module.scss';
+import { StyledBox, StyledLabel, StyledNumericFormat } from './styles';
 
 interface InputControllerProps<T extends FieldValues> {
   name: Path<T>;
@@ -28,28 +26,35 @@ const NumberFormatController = <T extends FieldValues>({
 }: InputControllerProps<T> & IExtendedInputProps) => {
   const isLithuanian = language === 'LT';
 
+  const [isFocused, setIsFocused] = useState(false);
+
   return (
     <Controller
       name={name}
       control={control}
       render={({ field: { onChange: fieldOnChange, value }, fieldState: { error } }) => (
         <>
-          <Typography fontSize="14px" fontWeight={400} color="#8C8C8C">
-            {label}{required && '*'}
-          </Typography>
-          <NumericFormat
-            className={styles.numericFormatField}
-            value={value}
-            onValueChange={(values) => {
-              fieldOnChange(values.value);
-              if (onChange) onChange(values.value);
-            }}
-            thousandSeparator={isLithuanian ? ' ' : ','}
-            decimalSeparator={isLithuanian ? ',' : '.'}
-            decimalScale={2}
-            fixedDecimalScale={true}
-            {...rest}
-          />
+          <StyledBox>
+            <StyledNumericFormat
+              value={value}
+              onFocus={() => setIsFocused(true)}
+              onBlur={() => setIsFocused(false)}
+              onValueChange={(values) => {
+                fieldOnChange(values.value);
+                if (onChange) onChange(values.value);
+              }}
+              thousandSeparator={isLithuanian ? ' ' : ','}
+              decimalSeparator={isLithuanian ? ',' : '.'}
+              decimalScale={2}
+              fixedDecimalScale={true}
+              placeholder=" "
+              {...rest}
+            />
+            <StyledLabel isFocused={isFocused} hasValue={!!value}>
+              {label}
+              {required && '*'}
+            </StyledLabel>
+          </StyledBox>
           {error && <FieldErrorMessage message={error.message} />}
         </>
       )}
