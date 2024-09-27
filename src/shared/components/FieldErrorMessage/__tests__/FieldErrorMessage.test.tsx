@@ -1,4 +1,3 @@
-import React from 'react';
 import { render, screen } from '@testing-library/react';
 import FieldErrorMessage from '../FieldErrorMessage';
 import { ThemeProvider, createTheme } from '@mui/material/styles';

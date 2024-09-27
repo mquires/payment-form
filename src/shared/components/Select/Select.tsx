@@ -1,6 +1,5 @@
 import { FormControl, InputLabel, OutlinedInput, Select as MuiSelect, SelectProps as MuiSelectProps } from '@mui/material';
 import { SelectInputProps } from '@mui/material/Select/SelectInput';
-import React from 'react';
 
 export interface SelectProps<T = string> {
   value?: T;

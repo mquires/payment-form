@@ -105,6 +105,7 @@ const App: React.FC = () => {
   };
 
   const handleCloseSnackbar = (event: React.SyntheticEvent | Event, reason?: SnackbarCloseReason) => {
+    console.log("event", event);
     if (reason === 'clickaway') {
       return;
     }
